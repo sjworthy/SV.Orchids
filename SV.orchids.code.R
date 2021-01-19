@@ -16,18 +16,18 @@ fig.1.b=as.matrix(fig.1.b)
 
 pdf("rplot.pdf") 
 fig.1.a.plot=barplot(fig.1.a, xlab = "Match Types for Species on GenBank", legend=rownames(fig.1.a), ylab= "Number of Matches",
-                     names=c("Species Match", "Genus Match", "No Match"),beside = T, ylim=c(0,80))
+                     names=c("Species Match", "Genus Match", "No Match"),beside = T, ylim=c(0,80), cex.lab=1.5, cex.axis = 1.5, cex.names=1.5)
 dev.off()
 pdf("rplot.pdf") 
 fig.1.b.plot=barplot(fig.1.b, xlab = "Match Types for Genera on GenBank", legend=rownames(fig.1.b), ylab= "Number of Matches",
-                     names=c("Genus Match", "No Match"),beside = T, ylim=c(0,80))
+                     names=c("Genus Match", "No Match"),beside = T, ylim=c(0,80), cex.axis = 1.5, cex.names = 1.5, cex.lab=1.5)
 dev.off()
 
 fig.2=read.csv("Fig.2.csv", header=T, row.names = 1)
 fig.2=as.matrix(fig.2)
 pdf("rplot.pdf") 
-fig.2.plot=barplot(fig.2, xlab = "All-to-All Match Types", legend=rownames(fig.2), ylab= "Number of Matches",
-                     names=c("Species Match", "Genus Match", "Combo Match"),beside = T, ylim=c(0,120))
+fig.2.plot=barplot(fig.2, xlab = "All-to-All Match Types", legend=rownames(fig.2), ylab= "Number of Matches",cex.lab=1.5,
+                     names=c("Species Match", "Genus Match", "Unresolved"),beside = T, ylim=c(0,120), cex.axis = 1.5, cex.names = 1.5)
 dev.off()
 
 

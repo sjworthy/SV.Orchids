@@ -1,4 +1,4 @@
-# Taxonomic diversity and the difficulty in genetically discriminating Andean montane forest orchids
+# Taxonomic diversity and genetic identification of Andean montane forest orchids
 
 
 

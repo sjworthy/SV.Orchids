@@ -9,18 +9,18 @@ fig.1.a=fig.1[1:2,1:4]
 rownames(fig.1.a)=fig.1.a[,1]
 fig.1.a=fig.1.a[,-1]
 fig.1.a=as.matrix(fig.1.a)
-fig.1.b=fig.1[1:2,6:8]
+fig.1.b=fig.1[1:2,6:9]
 rownames(fig.1.b)=fig.1.b[,1]
 fig.1.b=fig.1.b[,-1]
 fig.1.b=as.matrix(fig.1.b)
 
 pdf("rplot.pdf") 
 fig.1.a.plot=barplot(fig.1.a, xlab = "Match Types for Species on GenBank", legend=rownames(fig.1.a), ylab= "Number of Matches",
-                     names=c("Species Match", "Genus Match", "No Match"),beside = T, ylim=c(0,80), cex.lab=1.5, cex.axis = 1.5, cex.names=1.5)
+                     names=c("Species Match", "Genus Match", "No Match"),beside = T, ylim=c(0,55), cex.lab=1.5, cex.axis = 1.5, cex.names=1.5)
 dev.off()
 pdf("rplot.pdf") 
 fig.1.b.plot=barplot(fig.1.b, xlab = "Match Types for Genera on GenBank", legend=rownames(fig.1.b), ylab= "Number of Matches",
-                     names=c("Genus Match", "No Match"),beside = T, ylim=c(0,80), cex.axis = 1.5, cex.names = 1.5, cex.lab=1.5)
+                     names=c("Genus Match", "Multiple Matches", "No Match"),beside = T, ylim=c(0,55), cex.axis = 1.5, cex.names = 1.5, cex.lab=1.5)
 dev.off()
 
 fig.2=read.csv("Fig.2.csv", header=T, row.names = 1)
@@ -60,6 +60,19 @@ matk.aln=read.dna("matk.aln.fasta", format="fasta")
 
 rbcl.og.aln=read.dna("rbcl.outgp.aln.fasta", format="fasta")
 matk.og.aln=read.dna("matk.outgp.aln.fasta", format="fasta")
+
+# Distance between sequences in alignment
+rbcl.aln.2=read.alignment("rbcl.aln.fasta", format="fasta")
+
+rbcl.aln.dist=as.matrix(dist.alignment(rbcl.aln.2, matrix = "identity"))
+
+write.csv(rbcl.aln.dist, file="rbcl.aln.dist.mat.csv")
+
+matk.aln.2=read.alignment("matk.aln.fasta", format="fasta")
+
+matk.aln.dist=as.matrix(dist.alignment(matk.aln.2, matrix = "identity"))
+
+write.csv(matk.aln.dist, file="matk.aln.dist.mat.csv")
 
 
 # neighbor joining tree

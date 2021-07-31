@@ -1,4 +1,4 @@
-# Taxonomic diversity and genetic identification of Andean montane forest orchids
+# Ability of rbcL and matK DNA barcodes to discriminate between montane forest orchids
 
 
 
